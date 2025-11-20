@@ -203,6 +203,7 @@ public class ArrayQueue<T> extends AbstractQueue<T> implements Queue<T> {
    */
   @Override
   public void enqueue(T element) {
+
     throw new UnsupportedOperationException("Not implemented yet");
   }
 
@@ -225,7 +226,12 @@ public class ArrayQueue<T> extends AbstractQueue<T> implements Queue<T> {
    */
   @Override
   public void dequeue() {
-    throw new UnsupportedOperationException("Not implemented yet");
+    if(isEmpty()) {
+      throw new UnsupportedOperationException("Not implemented yet");
+    }
+    elements[first] = null;
+    first = advance(first);
+    size--;
   }
 
   /**
